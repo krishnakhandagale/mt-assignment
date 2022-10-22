@@ -8,20 +8,19 @@ import { Country } from './utils/translators/types';
 
 function App() {
 
-
   const [columns, setColums] = useState<Column[]>([
-    { name: 'name', sort: true, attr: 'name', curerntSort: null },
-    { name: 'flag', sort: false, attr: 'flag', curerntSort: null },
-    { name: 'area', sort: false, attr: 'area', curerntSort: null },
-    { name: 'population', sort: true, attr: 'population', curerntSort: null },
-    { name: 'capital', sort: false, attr: 'capital', curerntSort: null }
+    { name: 'name', sort: true, attr: 'name', currentSort: null },
+    { name: 'flag', sort: false, attr: 'flag', currentSort: null },
+    { name: 'area', sort: false, attr: 'area', currentSort: null },
+    { name: 'population', sort: true, attr: 'population', currentSort: null },
+    { name: 'capital', sort: false, attr: 'capital', currentSort: null }
   ])
 
   const onSort = (attr: string, sortType: null | 'asc' | 'desc', index: number) => {
   
     setColums(columns.map((el, i)=>{
       if(i === index){
-        el.curerntSort = sortType
+        el.currentSort = sortType
       }
       return el;
     }));

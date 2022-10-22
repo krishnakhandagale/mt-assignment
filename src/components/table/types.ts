@@ -10,5 +10,5 @@ export interface Column {
     name: string;
     sort?: boolean;
     attr: string;
-    curerntSort?: null | 'asc' | 'desc';
+    currentSort?: null | 'asc' | 'desc';
 }

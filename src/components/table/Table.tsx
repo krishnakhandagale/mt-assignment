@@ -4,15 +4,14 @@ import './table.css';
 export const Table: React.FC<Props> = ({ columns, data, onSort }: Props) => {
 
     const sort = (el: Column, sortType: null | 'asc' | 'desc', index: number) => {
-        el.curerntSort = sortType;
-        onSort && onSort(el.attr, el.curerntSort, index);
+        onSort && onSort(el.attr, sortType, index);
     }
     return <table>
         <thead>
             {
                 columns.map((el, index) => {
-                    const sortType = !el.curerntSort ? 'asc' : (el.curerntSort === 'asc' ? 'desc' : 'asc');
-                    const color = el.curerntSort === 'asc' ? 'green' : (el.curerntSort === 'desc' ? 'red' : 'black');
+                    const sortType = !el.currentSort ? 'asc' : (el.currentSort === 'asc' ? 'desc' : 'asc');
+                    const color = el.currentSort === 'asc' ? 'green' : (el.currentSort === 'desc' ? 'red' : 'black');
                     return <th onClick={() => el.sort && sort(el, sortType, index)} key={index} style={{ 'cursor': 'pointer' }}>
                         {el.name}
                         <span style={{ color }}>{el.sort ? '*' : ''}</span>
